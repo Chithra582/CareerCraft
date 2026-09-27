@@ -1,0 +1,35 @@
+name: ats-score-calculator
+description: Computes composite ATS parsability score based on section completeness, action verbs, quantified metrics, and layout hygiene.
+parameters:
+  type: object
+  properties:
+    sections_detected:
+      type: array
+      items:
+        type: string
+        enum:
+          - contact
+          - summary
+          - experience
+          - education
+          - skills
+          - projects
+          - certifications
+      description: Validated sections discovered in the resume.
+    action_verb_count:
+      type: integer
+      description: Total bullet points initiated with strong action verbs.
+    metric_count:
+      type: integer
+      description: Total bullet points containing quantified numerical achievements.
+    total_bullet_points:
+      type: integer
+      description: Overall count of experience bullet points.
+    formatting_issues_count:
+      type: integer
+      description: Count of layout red flags (e.g., graphics, tables, non-standard fonts).
+  required:
+    - sections_detected
+    - action_verb_count
+    - metric_count
+    - total_bullet_points

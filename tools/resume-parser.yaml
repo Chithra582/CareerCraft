@@ -1,0 +1,22 @@
+name: resume-parser
+description: Ingests candidate resume files (PDF/DOCX), extracts structured sections, and detects ATS layout compatibility issues.
+parameters:
+  type: object
+  properties:
+    file_content_base64:
+      type: string
+      description: Base64-encoded document data (or plain text string).
+    file_type:
+      type: string
+      enum:
+        - pdf
+        - docx
+        - text
+      description: Format of the ingested document.
+    extract_layout_metrics:
+      type: boolean
+      default: true
+      description: Inspect layout for multi-column flows, tables, and unsearchable images.
+  required:
+    - file_content_base64
+    - file_type

@@ -1,0 +1,32 @@
+name: cover-letter-generator
+description: Generates customized, professional cover letter correspondence tailored to target job roles and selected tone styles.
+parameters:
+  type: object
+  properties:
+    candidate_name:
+      type: string
+      description: Name of the candidate.
+    target_role:
+      type: string
+      description: Job title applied for.
+    company_name:
+      type: string
+      description: Name of the hiring organization.
+    key_achievements:
+      type: array
+      items:
+        type: string
+      description: Specific accomplishments to highlight in the letter.
+    tone:
+      type: string
+      enum:
+        - formal
+        - confident
+        - friendly
+      default: confident
+      description: Stylistic voice of the letter.
+  required:
+    - candidate_name
+    - target_role
+    - company_name
+    - key_achievements

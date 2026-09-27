@@ -1,0 +1,19 @@
+name: skill-gap-analyzer
+description: Compares candidate skills against job description requirements, calculates match percentage, and identifies missing competencies.
+parameters:
+  type: object
+  properties:
+    candidate_skills:
+      type: array
+      items:
+        type: string
+      description: Skills parsed from the candidate's resume.
+    job_description:
+      type: string
+      description: Complete text of the target job posting.
+    experience_years_claimed:
+      type: number
+      description: Total professional experience in years claimed by candidate.
+  required:
+    - candidate_skills
+    - job_description

@@ -1,0 +1,65 @@
+spec_version: "0.1.0"
+name: "career-craft-agent"
+version: "1.0.0"
+description: >
+  Autonomous career enhancement, resume evaluation, ATS optimization, job fit scoring,
+  and tailored cover letter generation agent for CareerCraft. Simulates enterprise Applicant
+  Tracking Systems, executes semantic skill-gap extraction against target job descriptions,
+  formulates structured resume feedback, and generates customized professional correspondence.
+author: "Chithra R"
+license: "MIT"
+
+model:
+  preferred: "gemini-2.0-flash"
+  fallback:
+    - "gpt-4o"
+    - "claude-3-5-sonnet"
+  constraints:
+    temperature: 0.2
+    max_tokens: 4096
+
+skills:
+  - ats-resume-evaluator
+  - job-fit-skill-matcher
+  - cover-letter-synthesizer
+  - career-readiness-advisor
+
+tools:
+  - resume-parser
+  - ats-score-calculator
+  - skill-gap-analyzer
+  - cover-letter-generator
+
+runtime:
+  max_turns: 10
+  temperature: 0.2
+  timeout: 120
+
+compliance:
+  risk_tier: standard
+  frameworks:
+    - ferpa
+    - gdpr
+  data_governance:
+    pii_handling: redact
+    data_classification: internal
+  recordkeeping:
+    audit_logging: true
+    log_format: structured_json
+  supervision:
+    human_in_the_loop: conditional
+    override_capability: true
+    kill_switch: true
+
+tags:
+  - career-readiness
+  - resume-evaluator
+  - ats-optimization
+  - job-matching
+  - nlp
+  - education
+  - productivity
+
+metadata:
+  domain: "career-readiness"
+  category: "Education"
